@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import * as echarts from 'echarts/core';
 import {GridComponent, LegendComponent, TitleComponent, TooltipComponent, VisualMapComponent} from 'echarts/components';
 import {BarChart} from 'echarts/charts';
@@ -11,8 +11,9 @@ import {BarSeriesOption, ComposeOption, GridComponentOption, LineSeriesOption, T
     styleUrls: ['./stack-bar-chart.component.scss']
 })
 export class StackBarChartComponent implements OnInit, AfterViewInit {
+@Input() double: boolean = false;
 
-    myChart: any;
+
 
     constructor() {
 
@@ -29,10 +30,10 @@ export class StackBarChartComponent implements OnInit, AfterViewInit {
         const color1 = 'red';
         const color2 = 'yellow';
         const color3 = 'green';
-
+let myChart: any;
         const chartDom = document.getElementById('stack-bar');
         if (chartDom) {
-            this.myChart = echarts.init(chartDom);
+            myChart = echarts.init(chartDom);
         }
         const textStyle = {
             verticalAlign: 'bottom',
@@ -127,9 +128,9 @@ export class StackBarChartComponent implements OnInit, AfterViewInit {
 
         };
 
-        this.myChart.setOption(option);
+       myChart.setOption(option);
         option.grid.left = 20;
-        this.myChart.setOption(option);
+        myChart.setOption(option);
 
     }
 }
