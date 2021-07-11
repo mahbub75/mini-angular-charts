@@ -1,27 +1,25 @@
 import {Directive, Input} from '@angular/core';
 import {ChartBase} from "./chart-base";
 import {ComparisonItem} from "../models/comparison-item";
-import {CartesianAxisOption} from "echarts/types/src/coord/cartesian/AxisModel";
 import {TextCommonOption} from "echarts/types/src/util/types";
 import {YAXisOption} from "echarts/types/dist/shared";
 
 @Directive()
 export class ChartComparisonBaseDirective extends ChartBase {
-
+    @Input() double: boolean = false;
     @Input() postFix: string = '%'
     @Input() data: ComparisonItem[]
     yAxis: YAXisOption;
 
-    private _initSeries(options) {
+    private _initValues(options) {
         options.series = [{
             showBackground: true,
             barWidth: 3,
             type: 'bar',
-
             data: [],
             label: {
                 show: true,
-                precision: 1,
+                // precision: 1,
                 position: 'top',
                 distance: 0,
                 valueAnimation: true,
@@ -29,14 +27,24 @@ export class ChartComparisonBaseDirective extends ChartBase {
                 formatter: (d) => {
                     return d.data.value + '%';
                 },
-            }
+                lineHeight: -10
+            },
+
 
         }];
+
+        options.plotOptions = {
+            bar: {
+                horizontal: true,
+                distributed: true,
+            }
+
+        };
     }
 
     protected setOptions(options: any) {
         // initialize series
-        this._initSeries(options);
+        this._initValues(options);
 
         // set custom xAxis
         this.xAxis.type = "value";
@@ -56,20 +64,14 @@ export class ChartComparisonBaseDirective extends ChartBase {
         this.grid.top = 10;
         this.grid.left = 20;
 
-        // set custom plotOptions
-        options.plotOptions = {
-            bar: {
-                horizontal: true,
-                distributed: true,
-            }
 
-        };
+
         const textStyle: TextCommonOption = {
             verticalAlign: 'bottom',
             fontSize: 12,
-            // distance: 100,
             fontWeight: 'bold'
         };
+
         this.data.forEach((item) => {
             const seriesData = {
                 value: item.value,
@@ -77,14 +79,31 @@ export class ChartComparisonBaseDirective extends ChartBase {
                     color: item.color
                 },
                 label: {
-                    offset: [this.dataOffset(item.value), 0]
+                    position: ['95', '0%']
                 }
 
             }
+
             options.series[0].data.push(seriesData);
             const yAxisData = {value: item.label, textStyle: textStyle};
             this.yAxis.data.push(yAxisData);
         });
+
+        // if we have double tile
+        if(this.double){
+            this.yAxis.offset = 0;
+            this.grid.left = 50;
+            this.yAxis.axisLabel.inside = false;
+            this.yAxis.axisLabel.lineHeight = null;
+            options.series[0].label.position = 'right';
+            this.yAxis.offset = 0;
+            options.series[0].showBackground = false;
+            this.xAxis.max = 112;
+            options.series[0].data.map((dataItem)=>{
+                delete dataItem.label.offset;
+                dataItem.label.position = ['250', '0%'];
+            });
+        }
         options.series[0].label.formatter = (d) => {
             return d.data.value + this.postFix;
         };

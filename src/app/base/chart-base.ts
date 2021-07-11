@@ -27,6 +27,9 @@ export abstract class ChartBase implements OnInit, AfterViewInit {
         splitLine: {
             show: false
         },
+        axisTick: {
+            show: false
+        },
         max: 100
     };
     yAxis: AxisBaseOption= {
