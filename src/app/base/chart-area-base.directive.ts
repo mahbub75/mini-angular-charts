@@ -2,7 +2,6 @@ import {Directive, Input} from '@angular/core';
 import {ChartBase} from "./chart-base";
 import {AreaItem} from "../models/area-item";
 import {LineItem} from "../models/line-item";
-import {YAXisOption} from "echarts/types/dist/shared";
 
 @Directive()
 export class ChartAreaBaseDirective extends ChartBase {
@@ -15,6 +14,7 @@ export class ChartAreaBaseDirective extends ChartBase {
         this.xAxisLabel.forEach(value => {
             this.xAxis.data.push(value);
         });
+
         this.xAxis.max = null;
         this.xAxis.boundaryGap = false;
         this.yAxis.splitLine={show:false};

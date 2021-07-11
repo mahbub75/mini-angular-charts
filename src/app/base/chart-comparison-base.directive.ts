@@ -10,37 +10,40 @@ export class ChartComparisonBaseDirective extends ChartBase {
 
     @Input() postFix: string = '%'
     @Input() data: ComparisonItem[]
-    yAxis:YAXisOption;
+    yAxis: YAXisOption;
 
+    private _initSeries(options) {
+        options.series = [{
+            showBackground: true,
+            barWidth: 3,
+            type: 'bar',
 
+            data: [],
+            label: {
+                show: true,
+                precision: 1,
+                position: 'top',
+                distance: 0,
+                valueAnimation: true,
+                fontFamily: 'monospace',
+                formatter: (d) => {
+                    return d.data.value + '%';
+                },
+            }
 
-    series = [{
-        showBackground: true,
-        barWidth: 3,
-        type: 'bar',
-
-        data: [],
-        label: {
-            show: true,
-            precision: 1,
-            position: 'top',
-            distance: 0,
-            valueAnimation: true,
-            fontFamily: 'monospace',
-            formatter: (d) => {
-                return d.data.value + '%';
-            },
-        }
-
-    }];
-    private _initSeries(){
-
+        }];
     }
 
     protected setOptions(options: any) {
-        this.xAxis.type="category";
+        // initialize series
+        this._initSeries(options);
+
+        // set custom xAxis
+        this.xAxis.type = "value";
         this.xAxis.boundaryGap = ['0%', '50%'];
-        this.yAxis.type="value";
+
+        // set custom yAxis
+        this.yAxis.type = "category";
         this.yAxis.offset = 10;
         this.yAxis.axisTick = {show: false};
         this.yAxis.axisLabel = {
@@ -48,8 +51,12 @@ export class ChartComparisonBaseDirective extends ChartBase {
             inside: true,
             lineHeight: 16,
         };
+
+        // set custom grid
         this.grid.top = 10;
         this.grid.left = 20;
+
+        // set custom plotOptions
         options.plotOptions = {
             bar: {
                 horizontal: true,
@@ -57,10 +64,10 @@ export class ChartComparisonBaseDirective extends ChartBase {
             }
 
         };
-        const textStyle:TextCommonOption = {
+        const textStyle: TextCommonOption = {
             verticalAlign: 'bottom',
             fontSize: 12,
-             // distance: 100,
+            // distance: 100,
             fontWeight: 'bold'
         };
         this.data.forEach((item) => {
@@ -74,11 +81,11 @@ export class ChartComparisonBaseDirective extends ChartBase {
                 }
 
             }
-            this.series[0].data.push(seriesData);
+            options.series[0].data.push(seriesData);
             const yAxisData = {value: item.label, textStyle: textStyle};
             this.yAxis.data.push(yAxisData);
         });
-        this.series[0].label.formatter = (d) => {
+        options.series[0].label.formatter = (d) => {
             return d.data.value + this.postFix;
         };
     }
@@ -94,7 +101,7 @@ export class ChartComparisonBaseDirective extends ChartBase {
                 offset = 84;
                 break
             case 100:
-                offset = 14
+                offset = 47
         }
         return offset
 

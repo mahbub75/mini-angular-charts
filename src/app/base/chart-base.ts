@@ -5,6 +5,7 @@ import {BarChart, GaugeChart, LineChart} from "echarts/charts";
 import {CanvasRenderer} from "echarts/renderers";
 import {XAXisOption, YAXisOption} from "echarts/types/dist/shared";
 import {AxisBaseOption} from "echarts/types/src/coord/axisCommonTypes";
+import {BarSeriesOption, LineSeriesOption} from "echarts";
 
 @Directive()
 export abstract class ChartBase implements OnInit, AfterViewInit {
@@ -37,8 +38,11 @@ export abstract class ChartBase implements OnInit, AfterViewInit {
         axisLine: {
             show: false
         },
+            splitLine: {
+                show: false
+            },
     };
-    series:any[]=[];
+    series:any[] | BarSeriesOption[] | LineSeriesOption[]=[];
     options: {
         grid: any,
         xAxis: any,

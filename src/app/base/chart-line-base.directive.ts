@@ -5,69 +5,45 @@ import {ChartBase} from "./chart-base";
 export class ChartLineBaseDirective extends ChartBase {
     @Input() xAxisData: string[] = [];
     @Input() mainData: number[] = [];
-  textStyle = {
-        fontSize: 12,
-        fontWeight: 'bold',
 
-    };
-    xAxis = {
-        data: [],
-        axisLine: {
-            show: false,
-        },
 
-        axisTick: {
-            show: false,
-        },
-    };
-
-    yAxis = {
-
-        min: 0,
-        max: 6,
-        axisLabel: {
-            show: false
-        },
-
-        splitLine: {
-            show: false
-        },
-    };
-
-   series = [
-        {
-            type: 'line',
-            data: [],
-            label: {
-                show: false,
-            }
-
-        },
-
-    ];
     protected setOptions(options) {
-
-        this.xAxisData.forEach((value)=>{
-            const item = {
-                value: value,
-                textStyle: this.textStyle
-            }
-            this.xAxis.data.push(item);
+        // initialize series
+        this._initSeries(options);
+// set custom xAxis
+        this.xAxisData.forEach((value) => {
+            this.xAxis.data.push(value);
         });
+        this.xAxis.max = null;
+        this.xAxis.type = 'category';
 
+// set custom yAxis
+        this.yAxis.min = 0;
+        this.yAxis.max = 6;
+        this.yAxis.type = 'value';
 
-        this.mainData.forEach((value)=>{
+        // set custom series
+        this.mainData.forEach((value) => {
             const item = {
                 value: value,
                 symbol: 'none',
             }
-            this.series[0].data.push(item);
+            options.series[0].data.push(item);
         });
 
-        options.grid = this.grid;
-        options.xAxis = this.xAxis;
-        options.yAxis = this.yAxis;
-        options.series = this.series
     }
 
+   private _initSeries(options) {
+        options.series = [
+            {
+                type: 'line',
+                data: [],
+                label: {
+                    show: false,
+                }
+
+            },
+
+        ]
+    }
 }

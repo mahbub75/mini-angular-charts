@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
-import {ChartLineBaseDirective} from "../base/chart-line-base.directive";
+import {ChartLineBaseDirective} from "../../base/chart-line-base.directive";
 
 @Component({
   selector: 'app-chart-line',

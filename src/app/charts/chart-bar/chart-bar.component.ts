@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
-import {ChartStackbarBase} from "../base/chart-stackbar-base";
-import {ChartBarBaseDirective} from "../base/chart-bar-base.directive";
+import {ChartStackbarBase} from "../../base/chart-stackbar-base";
+import {ChartBarBaseDirective} from "../../base/chart-bar-base.directive";
 
 @Component({
   selector: 'app-chart-bar',

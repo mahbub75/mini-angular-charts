@@ -1,5 +1,5 @@
 import {Component, ElementRef} from '@angular/core';
-import {ChartComparisonBaseDirective} from "../base/chart-comparison-base.directive";
+import {ChartComparisonBaseDirective} from "../../base/chart-comparison-base.directive";
 
 @Component({
   selector: 'app-chart-comparison',

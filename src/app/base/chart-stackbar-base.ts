@@ -47,7 +47,8 @@ getColor (index: number): string{
                 focus: 'series'
             },
             data: [{
-                value: value, itemStyle: {
+                value: value,
+                itemStyle: {
                     color: color
                 },
             }],

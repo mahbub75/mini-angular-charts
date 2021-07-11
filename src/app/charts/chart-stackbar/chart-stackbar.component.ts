@@ -1,5 +1,5 @@
 import {Component, ElementRef} from '@angular/core';
-import {ChartStackbarBase} from "../base/chart-stackbar-base";
+import {ChartStackbarBase} from "../../base/chart-stackbar-base";
 
 @Component({
     selector: 'app-chart-stackbar',

@@ -1,5 +1,5 @@
 import {Component, ElementRef} from '@angular/core';
-import {ChartCircularBaseDirective} from "../base/chart-circular-base.directive";
+import {ChartCircularBaseDirective} from "../../base/chart-circular-base.directive";
 
 @Component({
   selector: 'app-chart-circular',
