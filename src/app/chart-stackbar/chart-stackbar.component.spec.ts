@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CircularChartComponent } from './circular-chart.component';
+import { ChartStackbarComponent } from './chart-stackbar.component';
 
-describe('CircularChartComponent', () => {
-  let component: CircularChartComponent;
-  let fixture: ComponentFixture<CircularChartComponent>;
+describe('ChartStackbarComponent', () => {
+  let component: ChartStackbarComponent;
+  let fixture: ComponentFixture<ChartStackbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CircularChartComponent ]
+      declarations: [ ChartStackbarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CircularChartComponent);
+    fixture = TestBed.createComponent(ChartStackbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

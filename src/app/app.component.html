@@ -1,24 +1,43 @@
-<fd-tile size="l" [double]="true">
-    <div fd-tile-header>
-        <div style="display: flex; flex-direction: column;">
-            <span style="font-size: 14px; font-weight: bold; color: black">display business volume</span>
-            <span style="color: #888888; font-size: 10px">condition contracts</span>
-        </div>
-    </div>
-    <div fd-tile-content style="display: flex;justify-content: space-between;">
-        <div style="flex: 50%">
-            <h2>1.8 M</h2>
-        </div>
-        <div id="bar-chart" style="width: 100%;height: 100%; flex: 50%" >
+<div class="main-container">
+<!--    <fd-tile size="l" [double]="true">-->
+<!--        <div fd-tile-header>-->
+<!--            <div style="display: flex; flex-direction: column;">-->
+<!--                <span style="font-size: 14px; font-weight: bold; color: black">display business volume</span>-->
+<!--                <span style="color: #888888; font-size: 10px">condition contracts</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div fd-tile-content style="display: flex;justify-content: space-between;">-->
+<!--            <div style="flex: 50%">-->
+<!--                <h2>1.8 M</h2>-->
+<!--            </div>-->
+<!--            <div id="bar-chart" style="width: 100%;height: 100%; flex: 50%" >-->
 
-        </div>
+<!--            </div>-->
 
-    </div>
-    <div fd-tile-footer  [twoColumn]="true">
-        <div fd-tile-section >EUR. Year to Date</div>
-        <div fd-tile-section style="text-align: center">Actual / Forcecast</div>
-    </div>
-</fd-tile>
+<!--        </div>-->
+<!--        <div fd-tile-footer  [twoColumn]="true">-->
+<!--            <div fd-tile-section >EUR. Year to Date</div>-->
+<!--            <div fd-tile-section style="text-align: center">Actual / Forcecast</div>-->
+<!--        </div>-->
+<!--    </fd-tile>-->
 
-<app-circular-chart></app-circular-chart>
-<app-stack-bar-chart></app-stack-bar-chart>
+<!--    <app-tile-circular></app-tile-circular>-->
+<!--    <app-tile-stackbar-chart></app-tile-stackbar-chart>-->
+<!--    <app-tile-stackbar-chart  [double]="true"></app-tile-stackbar-chart>-->
+<!--    <app-tile-line></app-tile-line>-->
+<!--    <app-tile-line [double]="true"></app-tile-line>-->
+<!--    <app-area-chart ></app-area-chart>-->
+<!--    <app-area-chart [double]="true"></app-area-chart>-->
+<!--    <app-tile-stackbar></app-tile-stackbar>-->
+    <app-stack-bar [double]="true"></app-stack-bar>
+    <app-stack-bar ></app-stack-bar>
+    <app-tile-line-chart [double]="true"></app-tile-line-chart>
+    <app-tile-line-chart></app-tile-line-chart>
+<app-tile-circular></app-tile-circular>
+    <app-tile-comparison [double]="true"></app-tile-comparison>
+    <app-tile-comparison></app-tile-comparison>
+    <app-tile-bar [double]="true">></app-tile-bar>
+    <app-tile-bar></app-tile-bar>
+<app-tile-area [double]="true"></app-tile-area>
+<app-tile-area></app-tile-area>
+</div>

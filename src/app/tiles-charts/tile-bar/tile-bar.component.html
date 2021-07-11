@@ -1,0 +1,25 @@
+<fd-tile size="l" [double]="double">
+    <div fd-tile-header>
+        <span class="title">عنوان</span>
+        <span class="subtitle">زیر عنوان</span>
+    </div>
+
+    <div fd-tile-content>
+        <app-chart-bar class="chart"></app-chart-bar>
+        <div class="chart-desc" *ngIf="double">
+            <h2>1.8 M</h2>
+        </div>
+    </div>
+    <div fd-tile-footer [twoColumn]="true">
+        <div fd-tile-section>
+                <span>
+                  زیرنویس 1
+                </span>
+        </div>
+        <div *ngIf="double" fd-tile-section>
+                <span>
+                  زیرنویس 2
+                </span>
+        </div>
+    </div>
+</fd-tile>

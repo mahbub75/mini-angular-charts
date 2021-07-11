@@ -35,13 +35,13 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        const chartDom = document.getElementById('bar-chart');
-        if (chartDom) {
-            this.myChart = echarts.init(chartDom);
-        }
+     //   const chartDom = document.getElementById('bar-chart');
+      //if (chartDom) {
+     //       this.myChart = echarts.init(chartDom);
+      //  }
 
         const option: ComposeOption<BarSeriesOption | LineSeriesOption | TitleComponentOption | GridComponentOption> = {
-            tooltip: {},
+
             grid: {
                 top: 0,
             bottom: 20,
@@ -66,7 +66,7 @@ export class AppComponent implements OnInit, AfterViewInit {
             }]
         };
 
-        this.myChart.setOption(option);
+        //this.myChart.setOption(option);
     }
 
 }

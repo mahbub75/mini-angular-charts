@@ -1,0 +1,58 @@
+<fd-tile size="l" [double]="double" *ngIf="!double">
+    <div fd-tile-header>
+        <div style="display: flex; flex-direction: column;">
+            <span style="font-size: 14px; font-weight: bold; color: black">display business volume</span>
+            <span style="color: #888888; font-size: 10px">condition contracts</span>
+        </div>
+    </div>
+    <div fd-tile-content  style="display: flex; flex-direction: column">
+        <div style="width: 100%; height: 23%; display: flex; justify-content: space-between">
+
+            <p style="margin: 0; color: #f66364; font-size: 10px">45M</p>
+            <p style="margin: 0 ; color: #71c989; font-size: 10px">70M</p>
+
+        </div>
+        <div #chart style="width: 100%;height: 100%">
+
+        </div>
+        <div style="width: 100%; height: 25%; display: flex; justify-content: space-between">
+
+            <p style="margin: 0; color: #f66364; font-size: 10px">june 30</p>
+            <p style="margin: 0; color: #71c989; font-size: 10px">june 1</p>
+        </div>
+    </div>
+    <div fd-tile-footer>
+        <div fd-tile-section>EUR. Year to Date</div>
+    </div>
+</fd-tile>
+
+<fd-tile size="l" [double]="double" *ngIf="double">
+    <div fd-tile-header>
+        <div style="display: flex; flex-direction: column;">
+            <span style="font-size: 14px; font-weight: bold; color: black">display business volume</span>
+            <span style="color: #888888; font-size: 10px">condition contracts</span>
+        </div>
+    </div>
+    <div fd-tile-content  style="display: flex; flex-direction: row">
+
+
+        <div style="width: 10%; display: flex;flex-direction: column ;justify-content: space-between">
+
+            <p style="margin: 0; color: #f66364; font-size: 10px">70M</p>
+            <p style="margin: 0; color: #71c989; font-size: 10px">june 30</p>
+        </div>
+
+        <div #chart style="width: 80%;height: 100%">
+
+        </div>
+        <div style="width: 10%;  display: flex;;flex-direction: column; justify-content: space-between">
+
+            <p style="margin: 0; color: #f66364; font-size: 10px">45M</p>
+            <p style="margin: 0 ; color: #71c989; font-size: 10px">june 1</p>
+
+        </div>
+    </div>
+    <div fd-tile-footer>
+        <div fd-tile-section>EUR. Year to Date</div>
+    </div>
+</fd-tile>

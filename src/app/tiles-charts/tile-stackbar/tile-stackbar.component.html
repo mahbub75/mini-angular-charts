@@ -1,0 +1,23 @@
+<fd-tile  [double]="double">
+    <div fd-tile-header>
+        <span class="title">عنوان</span>
+        <span class="subtitle">زیر عنوان</span>
+    </div>
+
+    <div fd-tile-content>
+        <app-chart-stackbar class="chart" [postFix]="postFix" [data]="data"></app-chart-stackbar>
+    </div>
+    <div fd-tile-footer [twoColumn]="true">
+        <div fd-tile-section>
+                <span>
+                  زیرنویس 1
+                </span>
+        </div>
+        <div fd-tile-section>
+                <span>
+                  زیرنویس 2
+                </span>
+        </div>
+    </div>
+</fd-tile>
+

@@ -1,0 +1,18 @@
+.fd-tile__content {
+    display: flex;
+    justify-content: space-between;
+
+    .chart {
+        flex: 50%;
+    }
+
+    .chart-desc {
+        flex: 50%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        h2{
+            margin: 0;
+        }
+    }
+}

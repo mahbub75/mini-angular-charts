@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StackBarChartComponent } from './stack-bar-chart.component';
+import { TileCircularComponent } from './tile-circular.component';
 
-describe('StackBarChartComponent', () => {
-  let component: StackBarChartComponent;
-  let fixture: ComponentFixture<StackBarChartComponent>;
+describe('CircularChartComponent', () => {
+  let component: TileCircularComponent;
+  let fixture: ComponentFixture<TileCircularComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StackBarChartComponent ]
+      declarations: [ TileCircularComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StackBarChartComponent);
+    fixture = TestBed.createComponent(TileCircularComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

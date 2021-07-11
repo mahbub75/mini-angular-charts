@@ -1,0 +1,45 @@
+
+<fd-tile size="l" [double]="double">
+    <div fd-tile-header>
+
+            <span class="title" >عنوان</span>
+            <span class="subtitle" >زیر عنوان</span>
+
+    </div>
+    <div fd-tile-content [style.flex-direction] = "double?'row':'column'" >
+
+
+        <div class="right-labels" *ngIf="double" >
+            <span [style.color]="rightLabelsColor" >70M</span>
+            <span [style.color]="rightLabelsColor">june 30</span>
+        </div>
+
+        <div class="top-labels" *ngIf="!double" >
+            <span [style.color]="rightLabelsColor" >70M</span>
+            <span [style.color]="leftLabelsColor">45M</span>
+
+        </div>
+
+        <app-chart-area [xAxisLabel]="xAxisLabel" [areas]="areas" [line]="line"></app-chart-area>
+
+
+        <div class="left-labels" *ngIf="double" >
+
+            <span [style.color]="leftLabelsColor" >45M</span>
+            <span [style.color]="leftLabelsColor" >june 1</span>
+
+        </div>
+        <div class="bottom-labels" *ngIf="!double" >
+
+            <span [style.color]="rightLabelsColor">june 30</span>
+            <span [style.color]="leftLabelsColor">june 1</span>
+        </div>
+    </div>
+    <div fd-tile-footer>
+        <div fd-tile-section>
+                <span>
+                  زیرنویس 1
+                </span>
+        </div>
+    </div>
+</fd-tile>
