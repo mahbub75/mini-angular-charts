@@ -17,6 +17,7 @@ export class MicroChartAreaBaseDirective extends MicroChartBase {
     }
 
     protected setOptions(options) {
+        this._scaleDownLineData();
         // set custom xAxis
         this.xAxis.type='category';
         this.line.data.forEach((item)=>{
@@ -49,6 +50,13 @@ export class MicroChartAreaBaseDirective extends MicroChartBase {
         this.series.push(seriesItem);
     }
 
+    private _scaleDownLineData() {
+        const maxValue = Math.max.apply(Math, this.line.data.map((dataItem) => dataItem.value));
+        return this.line.data.forEach((dataItem) =>{
+            dataItem.value *= (6/maxValue);
+        })
+
+    }
     private _createSeriesItem(data) {
         return {
             type: 'line',

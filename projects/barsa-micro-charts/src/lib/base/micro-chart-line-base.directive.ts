@@ -14,6 +14,8 @@ export class MicroChartLineBaseDirective extends MicroChartBase {
         super(el, renderer2);
     }
     protected setOptions(options) {
+        this._scaleDownLineData();
+
         // initialize series
         this._initSeries(options);
 
@@ -34,6 +36,14 @@ export class MicroChartLineBaseDirective extends MicroChartBase {
         this.yAxis.min = 0;
         this.yAxis.max = 6;
         this.yAxis.type = 'value';
+
+    }
+
+    private _scaleDownLineData() {
+        const maxValue = Math.max.apply(Math, this.line.data.map((dataItem) => dataItem.value));
+        return this.line.data.forEach((dataItem) =>{
+            dataItem.value *= (6/maxValue);
+        })
 
     }
 
