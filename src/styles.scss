@@ -5,36 +5,7 @@ body {
     font-family: var(--sapFontFamily);
 }
 
-@font-face {
-    font-family: "72";
-    src: url("./fonts/72_Desktop/72-Regular.ttf") format("woff"); // Bold, Light, Regular available in woff and woff2
-    font-weight: normal;
-    font-style: normal;
-}
 
-;
-
-@font-face {
-    font-family: "SAP-icons";
-    src: url("./fonts/sap-icon/Fonts/SAP-icons.woff") format("woff"); // available in woff, woff2 and ttf
-    font-weight: normal;
-    font-style: normal;
-}
-
-fd-shellbar .fd-shellbar {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-}
-
-fd-side-nav .fd-side-nav {
-    position: sticky;
-    height: 100%;
-}
-
-fd-side-nav {
-    height: calc(100vh - 44px);
-}
 
 //tiles
 .fd-tile__header {
@@ -57,9 +28,4 @@ fd-side-nav {
     .fd-tile__section{
         text-align: start;
     }
-}
-.micro-chart{
-    width: 100%;
-    height: 100%;
-    display: block;
 }
