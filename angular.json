@@ -39,7 +39,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+                "./node_modules/echarts/dist/echarts.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -99,6 +101,46 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {}
+        }
+      }
+    },
+    "barsa-micro-charts": {
+      "projectType": "library",
+      "root": "projects/barsa-micro-charts",
+      "sourceRoot": "projects/barsa-micro-charts/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/barsa-micro-charts/tsconfig.lib.json",
+            "project": "projects/barsa-micro-charts/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/barsa-micro-charts/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/barsa-micro-charts/src/test.ts",
+            "tsConfig": "projects/barsa-micro-charts/tsconfig.spec.json",
+            "karmaConfig": "projects/barsa-micro-charts/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/barsa-micro-charts/tsconfig.lib.json",
+              "projects/barsa-micro-charts/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
         }
       }
     }

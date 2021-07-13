@@ -2,6 +2,12 @@
   "compileOnSave": false,
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "paths": {
+      "barsa-micro-charts": [
+        "dist/barsa-micro-charts/barsa-micro-charts",
+        "dist/barsa-micro-charts"
+      ]
+    },
     "baseUrl": "./",
     "downlevelIteration": true,
     "outDir": "./dist/out-tsc",
